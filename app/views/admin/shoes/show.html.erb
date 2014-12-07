@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @shoe.cover.url(:medium) %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @shoe.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @shoe.category_id %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @shoe.company_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @shoe.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @shoe.price %>
+</p>
+
+<%= link_to 'Edit', edit_admin_shoe_path(@shoe) %> |
+<%= link_to 'Back', admin_shoes_path %>

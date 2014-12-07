@@ -1,0 +1,17 @@
+<table>
+
+  <tbody>
+    <% shoes.each do |shoe| %>
+      <tr>
+        <%= image_tag  shoe.cover.url(:medium) %>
+        
+          <div>Name: <%= shoe.name %></div>
+          <div>Company: <%= shoe.company.try(:name) %></div>
+          <div>Description: <%= shoe.description %></div>
+          <div>Price: <%= shoe.price%></div>
+        
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

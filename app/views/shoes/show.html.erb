@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @shoe.cover.url(:medium) %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @shoe.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @shoe.category_id %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @shoe.company_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @shoe.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @shoe.price %>
+</p>
+
+<%= link_to 'Back', shoes_path %>
+
+<h4 style="margin-top: 20px;">Customer's feedbacks</h4>
+<table id = "all_comments" style="width: 600px;">
+  <tr>
+    <th>User email</th>
+    <th>Comment</th>
+  </tr>
+  <% @comments.each_with_index do |comment, idx| %>
+    <tr class=<%= idx.odd? ? "odd" : ""%>>
+      <td><%= comment.user.email%></td>
+      <td><%= comment.comment%></td>
+    </tr>
+  <% end %>
+</table>
+<%= form_for @new_comment do |f| %>
+  <h4>Add a new comment</h4>
+  <span class="field">
+    <%= f.label :comment %>
+    <%= f.text_field :comment %>
+  </span>
+
+  <span class="field">
+    <%= f.label :user_id %>
+    <%= select(:comment, :user_id, options_from_collection_for_select(User.all, :id, :email)) %>
+  </span>
+  <input type = "hidden" name = 'comment[commentable_type]', value=<%= @shoe.class.name%>>
+  <input type = "hidden" name = 'comment[commentable_id]', value=<%= @shoe.id%>>
+    <span style= "margin-left: 10px;"><%= f.submit %></span>
+<% end %>

@@ -1,0 +1,2 @@
+module ModelShoesHelper
+end

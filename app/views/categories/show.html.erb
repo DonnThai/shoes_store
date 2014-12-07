@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>Category: <%= @category.name%></h1>
+<%=render "shoes", shoes: @shoes %>
+<br>
+<%= link_to 'Back', categories_path %>

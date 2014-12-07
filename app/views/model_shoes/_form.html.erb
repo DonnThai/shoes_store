@@ -1,0 +1,21 @@
+<%= form_for(@model_shoe) do |f| %>
+  <% if @model_shoe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@model_shoe.errors.count, "error") %> prohibited this model_shoe from being saved:</h2>
+
+      <ul>
+      <% @model_shoe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :shoe_id %><br>
+    <%= f.number_field :shoe_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
